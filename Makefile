@@ -6,7 +6,7 @@
 #    By: jhakonie <jhakonie@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/29 17:09:53 by ksuomala          #+#    #+#              #
-#    Updated: 2020/09/07 13:57:58 by jhakonie         ###   ########.fr        #
+#    Updated: 2020/09/07 21:04:54 by jhakonie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ SRCS = main.c get_grid.c backtracker.c mod_grid.c dynamic_mem.c isvalid.c
 
 NAME = fillit
 
-CC = gcc -g -Wall -Werror -Wextra -c
+CC = gcc -Wall -Werror -Wextra -c
 
 INCL = -I libft/
 
