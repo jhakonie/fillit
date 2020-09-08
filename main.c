@@ -6,7 +6,7 @@
 /*   By: jhakonie <jhakonie@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/29 17:38:50 by ksuomala          #+#    #+#             */
-/*   Updated: 2020/09/07 19:25:20 by jhakonie         ###   ########.fr       */
+/*   Updated: 2020/09/08 14:19:36 by jhakonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,22 +102,24 @@ t_tet	*ft_read(int fd, t_tet *head)
 	int				n;
 	char			line[21];
 	char			**tet;
+	t_tet			*temp;
 
+	temp = head;
 	n = read(fd, &line, 21);
 	if (n < 20 || !ft_istet(line, n))
-		return (NULL);
+		return (ft_return_null(&temp));
 	if (!(tet = ft_tet_grid(line)))
-		return (NULL);
+		return (ft_return_null(&temp));
 	if (!(head = ft_coordinates(tet, head)))
-		return (NULL);
+	{
+		ft_free2d(tet);
+		return (ft_return_null(&temp));
+	}
 	ft_free2d(tet);
 	if (n == 21)
 		return (ft_read(fd, head));
 	if (ft_lstsize(head) > 26)
-	{
-		ft_lstfree(&head);
-		return (NULL);
-	}
+		return (ft_return_null(&temp));
 	return (head);
 }
 

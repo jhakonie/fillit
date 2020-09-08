@@ -6,11 +6,18 @@
 /*   By: jhakonie <jhakonie@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 14:31:27 by ksuomala          #+#    #+#             */
-/*   Updated: 2020/09/07 19:09:10 by jhakonie         ###   ########.fr       */
+/*   Updated: 2020/09/08 12:07:41 by jhakonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+void	*ft_return_null(t_tet **head)
+{
+	if (*head)
+		ft_lstfree(head);
+	return (NULL);
+}
 
 void	ft_free2d(char **arr)
 {
@@ -68,6 +75,7 @@ t_tet	*ft_createnode(t_tet *head)
 	t_tet	*new;
 	int		i;
 
+	temp = head;
 	if (!(new = (t_tet *)malloc(sizeof(t_tet))))
 		return (NULL);
 	if (!head)

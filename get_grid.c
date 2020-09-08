@@ -6,7 +6,7 @@
 /*   By: jhakonie <jhakonie@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/11 13:28:04 by ksuomala          #+#    #+#             */
-/*   Updated: 2020/09/07 18:50:32 by jhakonie         ###   ########.fr       */
+/*   Updated: 2020/09/08 14:21:27 by jhakonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ char		**ft_create_grid(size_t side)
 	while (n < side)
 	{
 		if ((!(test_grid[n] = (char *)malloc(sizeof(char) * (side + 1)))))
+		{
+			ft_free2d(test_grid);
 			return (NULL);
+		}
 		test_grid[n][side] = '\0';
 		ft_memset(test_grid[n], '.', side);
 		n++;
